@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SecondActivity">
+    <!--    android:background="@drawable/background3">-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="Câu hỏi: 1"
+            android:textSize="@android:dimen/app_icon_size"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text=" Cổ cao cao, cẳng cao cao\n Chân đen cánh trắng ra vào đồng xanh\n Cảnh quê thêm đẹp bức tranh\n Sao đành chịu tiếng ma lanh nhử mồi?\n Là con gì?"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/imagePlay1"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/heo"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/imagePlay2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/cotrang"></ImageButton>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageButton
+                android:id="@+id/imagePlay3"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/meo2"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/imagePlay4"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/vit2"></ImageButton>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
