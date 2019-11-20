@@ -1,0 +1,176 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Student Managerment - Midterm Test</title>
+    <style>
+        span {
+            color: crimson;
+            font-size: large;
+        }
+
+        .container {
+            margin: auto;
+            width: 50%;
+            border: 3px solid #00CCFF;
+            padding: 10px;
+            margin-top: 13%;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="formAdd" style="display: none;">
+            <h1>Add New Student</h1>
+            <br>
+            <form action="/action_page.php" style="border: cornflowerblue;">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" class="form-control" id="name">
+                    <span id="name-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="jsscore">JsScore: </label>
+                    <input type="text" class="form-control" id="jsscore">
+                    <span id="jsscore-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="androidscore">AndroidScore: </label>
+                    <input type="text" class="form-control" id="androidscore">
+                    <span id="androidscore-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="class">Class: </label>
+                    <input type="text" class="form-control" id="class">
+                    <span id="class-message"></span>
+                </div>
+                <button type="button" class="btn btn-info" onclick="addNewStudent()">Add New</button>
+            </form>
+        </div>
+        <div id="listForm">
+            <h1>List Students</h1> <button type="button" <button type="button" class="btn btn-success"
+                onclick="addForm()">Add</button>
+            <button type="button" class="btn btn-primary" onclick="displayStudent()">Display Student</button>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">JsScore</th>
+                        <th scope="col">AndroidScore</th>
+                        <th scope="col">Average</th>
+                        <th scope="col">Ranks</th>
+                        <th scope="col">Class</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    let students = JSON.parse(localStorage.getItem('students'));
+    if (!students) {
+        students = []
+        localStorage.setItem('students', JSON.stringify(students));
+    }
+    // Add new Student
+    function addNewStudent() {
+        let name = document.getElementById("name").value;
+        let jsscore = parseInt(document.getElementById("jsscore").value);
+        let androidscore = parseInt(document.getElementById("androidscore").value);
+        let classes = document.getElementById("class").value;
+        // Average score
+        let average = parseFloat((parseFloat(jsscore) + parseFloat(androidscore) * 2) / 3).toFixed(2);
+
+        let ranking = getRanking(average)
+        let student = { name, jsscore, androidscore, average, ranking, classes };
+        if (verifyData(student)) {
+            students.push(student)
+            localStorage.setItem('students', JSON.stringify(students));
+            document.getElementById("listForm").style.display = 'block';
+            document.getElementById("formAdd").style.display = 'none';
+        }
+    }
+    // Display all student
+    function displayStudent() {
+        students.forEach((student, index) => {
+            var node = document.createElement("tr");
+            node.innerHTML = "<td>" + "</td>" + "<td>" + student.name + "</td><td>" + student.jsscore + "</td><td>" + student.androidscore + "</td><td>" + student.average + "</td><td>" + student.ranking + "</td><td>" + student.classes + "</td>"
+                + "<td>" + "<button type='button' class='btn btn-warning'>Update</button>" + "<button type='button' id='" + index + "' class='btn btn-danger' onclick='onDelete(this)'>Delete</button>" + "</td>";
+            document.getElementById("tbody").appendChild(node);
+        });
+    }
+    // Delete 1 student
+    function onDelete(elementDelete) {
+        students.splice(elementDelete.id, 1);
+        localStorage.setItem('students', JSON.stringify(students));
+        students = JSON.parse(localStorage.getItem('students'));
+        elementDelete.parentNode.parentNode.parentNode.removeChild(elementDelete.parentNode.parentNode);
+    }
+
+    verifyData = (student) => {
+        let validate = true;
+        if (!student.name) {
+            document.getElementById("name-message").innerHTML = "Name is empty!";
+            validate = false;
+        }
+        if (!student.jsscore) {
+            document.getElementById("jsscore-message").innerHTML = "JsScore is empty!";
+            validate = false;
+        } else if (student.jsscore < 0 || student.jsscore > 10) {
+            document.getElementById("jsscore-message").innerHTML = "Invalid score!";
+            validate = false;
+        }
+        if (!student.androidscore) {
+            document.getElementById("androidscore-message").innerHTML = "AndroidScore is empty!";
+            validate = false;
+        } else if (student.androidscore < 0 || student.androidscore > 10) {
+            document.getElementById("androidscore-message").innerHTML = "Invalid score!";
+            validate = false;
+        } 
+        if (!student.name) {
+            document.getElementById("class-message").innerHTML = "Class is empty!";
+            validate = false;
+        }
+        return validate
+    }
+    // Hide and Display Form
+    function addForm() {
+        document.getElementById("formAdd").style.display = 'block';
+        document.getElementById("listForm").style.display = 'none';
+    }
+    // Rank of students
+    getRanking = (average) => {
+        let ranking = "Normal";
+        if (average > 8) {
+            ranking = "Verry Good";
+        } else if (average > 7) {
+            ranking = "Good";
+        }
+        return ranking;
+    }
+</script>
+
+</html>
