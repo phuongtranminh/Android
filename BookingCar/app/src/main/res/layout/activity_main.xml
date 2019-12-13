@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#97FFFF"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mailinh"></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/doublefeature"
+        android:paddingLeft="50dp"
+        android:text="Chào Mừng Đến Nhà Xe Mai Linh"
+        android:textColor="#F70C0C"
+        android:textSize="35dp"></TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnTraCuu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#009ACD"
+            android:layout_marginLeft="10dp"
+            android:text="Tra Cứu Vé"></Button>
+
+        <Button
+            android:id="@+id/btnDatVe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38dp"
+            android:background="#009ACD"
+            android:text="Đặt Vé"></Button>
+
+        <Button
+            android:id="@+id/btnThongTin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#009ACD"
+            android:layout_marginLeft="38dp"
+            android:text="Nhà Xe"></Button>
+
+    </LinearLayout>
+
+</LinearLayout>

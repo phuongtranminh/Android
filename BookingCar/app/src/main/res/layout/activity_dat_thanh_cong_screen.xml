@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#97FFFF"
+    android:orientation="vertical"
+    tools:context=".DatThanhCongScreen">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chúc mừng bạn đã đặt vé thành công!"
+        android:textColor="#F70C0C"
+        android:textSize="30dp"></TextView>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên: "
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại: "
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loại xe: "
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số lượng vé: "
+        android:textSize="30sp" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_car_code"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Biển số xe"-->
+    <!--        android:textSize="30sp" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_starting_gate"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Nơi khởi hành"-->
+    <!--        android:textSize="30sp" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_starting_time"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Số thời gian khởi hành"-->
+    <!--        android:textSize="30sp" />-->
+    <!--    <TextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Ghế đã đặt"-->
+    <!--        android:textSize="30sp" />-->
+    <TextView
+        android:id="@+id/tv_seat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cảm ơn quý khách đã đặt vé tại nhà xe Mai Linh"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:background="#009688"
+        android:textSize="30sp" />
+
+</LinearLayout>
